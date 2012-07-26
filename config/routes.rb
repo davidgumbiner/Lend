@@ -6,13 +6,15 @@ Lend::Application.routes.draw do
     resource :lendables
   end
   
-  resources :relationships, only: [:create, :destroy]
+  resources :lendables do
+    resource :requests
+  end
   
   resources :sessions, only: [:new, :create, :destroy]
   
 
   root to: 'static_pages#home'
-
+  
   match '/signup',  to: 'users#new'
   match '/signin',  to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete

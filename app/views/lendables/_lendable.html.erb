@@ -2,10 +2,10 @@
   <% unless current_user?(@user) %>
 	<div id="request_form">
 	  <% if lendable.requested? %>
-		Requested
+	     <div class="requested"> Requested </div>
 	  <% else %>
-		<%= form_for(lendable.requests.new) do |f| %>
-		  <%= f.submit "Request me!", class: "btn btn-small" %>
+		<%= form_for([lendable, lendable.requests.new], remote: true) do |f| %>
+		  <%= f.submit "Request me!", class: "btn btn-small pull-right" %>
 		<% end %>
 	  <% end %>
 	  </div>

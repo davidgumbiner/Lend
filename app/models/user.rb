@@ -3,7 +3,6 @@ class User < ActiveRecord::Base
    has_secure_password
    has_many :lendables, dependent: :destroy
    has_many :requests, foreign_key: "requester_id", dependent: :destroy
-   has_many :requested_items, through: :requests, source: :lendable
 
    before_save { |user| user.email = email.downcase }
    before_save :create_remember_token
@@ -15,6 +14,14 @@ class User < ActiveRecord::Base
                       uniqueness: { case_sensitive: false }
     validates :password, presence: true, length: { minimum: 6 }
     validates :password_confirmation, presence: true
+    
+    def request!(lendable)
+      requests.create!(lendable_id: lendable.id)
+    end
+
+    def unrequeust!(lendable)
+      requests.find_by_lendable_id(lendable.id).destroy
+    end
     
     private
 

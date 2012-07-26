@@ -1,10 +1,14 @@
 class RequestsController < ApplicationController
-  
-  def new
-    @request = Request.new
+
+  def create
+    @request = Request.new(requester_id: current_user.id, lendable_id: params[:lendable_id])
+    if @request.save
+      redirect_to user_path(current_user)
+    else
+    end
   end
   
-  def create
-    lendable = Lendable.find(params[:lendable_id])
+  def delete
+    Request.delete(requester_id: current_user.id, lendable_id: params[:lendable_id])
   end
 end

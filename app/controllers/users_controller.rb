@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @lendables = @user.lendables.paginate(page: params[:page])  
+    @requests = @user.requests
   end
   
   def new

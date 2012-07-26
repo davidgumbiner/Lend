@@ -1,3 +1,9 @@
-<%= form_for(lendable.requests)
+<%= form_for(lendable.requests.find_by_requester_id(current_user.id))
              html: { method: :delete }) do |f| %>
   <%= f.submit "Remove request", class: "btn btn-small" %>
+
+or?
+
+<%= form_for([lendable, lendable.requests.delete]) do |f| %>
+<%= f.submit "Remove request", class: "btn btn-small" %>
+<% end %>

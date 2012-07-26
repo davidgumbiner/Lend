@@ -14,14 +14,5 @@ class Lendable < ActiveRecord::Base
   def requested?
     self.requests.present?
   end
-  
-  private
 
-  def request!(lendable)
-    requests.create!(lendable_id: lendable.id)
-  end
-  
-  def unrequeust!(lendable)
-    requests.find_by_lendable_id(lendable.id).destroy
-  end
 end
