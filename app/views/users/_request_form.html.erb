@@ -1,0 +1,11 @@
+<% unless current_user?(@user) %>
+  <div id="request_form">
+  <% @lendables.each do |lendable| %>
+  <% if lendable.requested?(@lendable) %>
+    <%= render 'requested' %>
+  <% else %>
+	<%= render 'request' %>
+  <% end %>
+ <% end %>
+  </div>
+<% end %>

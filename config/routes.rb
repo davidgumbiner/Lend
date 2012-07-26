@@ -1,10 +1,15 @@
 Lend::Application.routes.draw do
 
+  get "requests/new"
+
   resources :users do
     resource :lendables
   end
   
+  resources :relationships, only: [:create, :destroy]
+  
   resources :sessions, only: [:new, :create, :destroy]
+  
 
   root to: 'static_pages#home'
 

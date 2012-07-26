@@ -1,4 +1,13 @@
 <li>
+  <% unless current_user?(@user) %>
+	<div id="request_form">
+	  <% if lendable.requested? %>
+	    <%= render 'requested' %>
+	  <% else %>
+		<%= render 'request' %>
+	  <% end %>
+	  </div>
+  <% end %>
   <span class="lendable_name"><%= lendable.name %></span>
   <span class="content"><%= lendable.content %></span>
   <span class="timestamp">

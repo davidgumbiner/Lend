@@ -17,7 +17,7 @@ namespace :db do
     
     users = User.all(limit: 10)
     50.times do
-      lendable_name = Faker::Lorem.sentence(5)
+      lendable_name = Faker::Lorem.sentence(1)
       content = Faker::Lorem.sentence(5)
       users.each { |user| user.lendables.create!(name: lendable_name, content: content) }
     end

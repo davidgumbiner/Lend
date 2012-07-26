@@ -186,26 +186,30 @@ input, textarea, select, .uneditable-input {
   li {
     padding: 10px 0;
     border-top: 1px solid #e8e8e8;
-
-	.name {
-		font-weight: bold;
-	}
-
-	.content {
-	  display: block;
-	}
   }
 }
 
+.lendable_name {
+  font-weight: bold;
+}
 
+.content {
+  display: block;
+}
 
 .timestamp {
   color: $grayLight;
 }
+
+.request_form {
+  float:right;
+}
+
 .gravatar {
   float: left;
   margin-right: 10px;
 }
+
 aside {
   textarea {
     height: 100px;

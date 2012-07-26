@@ -1,0 +1,4 @@
+<%= form_for(@lendable.requests.new) do |f| %>
+  <div><%= f.hidden_field :request %></div>
+  <%= f.submit "Request me!", class: "btn btn-small" %>
+<% end %>
