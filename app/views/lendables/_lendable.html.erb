@@ -1,0 +1,7 @@
+<li>
+  <span class="lendable_name"><%= lendable.name %></span>
+  <span class="content"><%= lendable.content %></span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(lendable.created_at) %> ago.
+  </span>
+</li>

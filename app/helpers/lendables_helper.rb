@@ -1,0 +1,2 @@
+module LendablesHelper
+end

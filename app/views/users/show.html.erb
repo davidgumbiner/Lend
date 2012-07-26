@@ -8,4 +8,13 @@
       </h1>
     </section>
   </aside>
+<div class="span8">
+    <% if @user.lendables.any? %>
+      <h3>Lendables (<%= @user.lendables.count %>)</h3>
+      <ol class="lendables">
+        <%= render @lendables %>
+      </ol>
+      <%= will_paginate @lendables %>
+    <% end %>
+  </div>
 </div>
