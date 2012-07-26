@@ -2,9 +2,11 @@
   <% unless current_user?(@user) %>
 	<div id="request_form">
 	  <% if lendable.requested? %>
-	    <%= render 'requested' %>
+		Requested
 	  <% else %>
-		<%= render 'request' %>
+		<%= form_for(lendable.requests.new) do |f| %>
+		  <%= f.submit "Request me!", class: "btn btn-small" %>
+		<% end %>
 	  <% end %>
 	  </div>
   <% end %>

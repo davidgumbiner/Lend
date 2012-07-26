@@ -25,13 +25,13 @@ ActiveRecord::Schema.define(:version => 20120726012931) do
 
   create_table "requests", :force => true do |t|
     t.integer  "requester_id"
-    t.integer  "item_id"
+    t.integer  "lendable_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end
 
-  add_index "requests", ["item_id"], :name => "index_requests_on_item_id"
-  add_index "requests", ["requester_id", "item_id"], :name => "index_requests_on_requester_id_and_item_id", :unique => true
+  add_index "requests", ["lendable_id"], :name => "index_requests_on_lendable_id"
+  add_index "requests", ["requester_id", "lendable_id"], :name => "index_requests_on_requester_id_and_lendable_id", :unique => true
   add_index "requests", ["requester_id"], :name => "index_requests_on_requester_id"
 
   create_table "users", :force => true do |t|
